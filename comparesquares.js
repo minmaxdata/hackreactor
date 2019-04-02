@@ -1,15 +1,17 @@
 function comp(array1, array2) {
     if ((array1 !== null && array2 !== null)) {
-        array1.filter(function (elem, index, array) {
-            return index == array.indexOf(elem);
-        }).sort((a, b) => a - b).map(value => value * value);
-        array2.filter(function (elem, index, array) {
-            return index == array.indexOf(elem);
-        }).sort((a, b) => a - b);
+        var unique = (elem, index, array) => index === array.indexOf(elem);
+        var ascending = (a, b) => a - b;
+        var square = value => value * value;
+        var issame = (value, index) => value === array2[index];
+
+        array1.filter(unique);
+        array2.filter(unique);
+
         if (array1.length === array2.length) {
-            var a1 = array1.sort((a, b) => a - b).map(value => value * value);
-            array2.sort((a, b) => a - b);
-            return a1.every((value, index) => value === Math.abs(array2[index]));
+            var a1 = array1.sort(ascending).map(square);
+            array2.sort(ascending);
+            return a1.every(issame);
         }
     }
     return false
