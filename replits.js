@@ -186,7 +186,7 @@ var people = [
 // whoWillBeAtLeast30(people); // ['Sarah', 'Alex', 'Chris', 'Kira'];
 
 function indexOfLargest(numbers) {
-    var sortedNums = numbers.sort((a, b) => = (a, b)  a - b);
+    var sortedNums = numbers.sort((a, b) => a - b);
     // console.log(sortedNums);
     var largest = numbers[0];
     var index = 0;
